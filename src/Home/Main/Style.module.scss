@@ -1,0 +1,244 @@
+#Grid {
+    width: 1200px;
+}
+
+// dòng 70
+#BtnLeft {
+    left: 0;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .12);
+    transition: all 0.1s linear;
+
+    &:hover {
+        transform: scale(150%);
+    }
+}
+
+// dòng 71
+#BtnRight {
+    right: 0;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .12);
+    transition: all 0.1s linear;
+
+    &:hover {
+        transform: scale(150%);
+    }
+}
+
+// dòng 156
+#Item {
+
+    >div {
+        &:hover {
+            >span:nth-child(4) {
+                transform: scale(100%);
+            }
+
+            >span:nth-child(5) {
+                transform: scale(100%);
+            }
+
+            >span:nth-child(6) {
+                background-color: #eb3e32;
+                color: #fff;
+            }
+        }
+
+        cursor: pointer;
+
+        >span:nth-child(3) {
+            top: 10px;
+            left: 10px;
+            background-color: #ffd004;
+            width: 40px;
+            line-height: 18px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -20px;
+                right: 0;
+                left: 0;
+                border-style: solid;
+                border-width: 0px 20px 20px 20px;
+                border-color: transparent #ffd004 transparent #ffd004;
+            }
+        }
+
+        >span:nth-child(4) {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 6px;
+            font-size: 2rem;
+            background-color: #eb3e32;
+            display: flex;
+            color: #fff;
+            border-radius: 4px;
+            transform: scale(0%);
+            transition: transform 0.15s linear;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+
+        >span:nth-child(5) {
+            position: absolute;
+            top: 50px;
+            right: 12px;
+            padding: 6px;
+            font-size: 2rem;
+            background-color: #eb3e32;
+            display: flex;
+            color: #fff;
+            border-radius: 4px;
+            transform: scale(0%);
+            transition: transform 0.15s linear;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+
+        >span:nth-child(6) {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            padding: 6px;
+            font-size: 2rem;
+            display: flex;
+            color: #000;
+            border-radius: 4px;
+            transition: background-color 0.15s linear;
+
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+}
+
+// dòng 133
+#ListTitleDiscount {
+    >li {
+        cursor: pointer;
+    }
+}
+
+// dòng 157
+#BtnLeft1 {
+    left: 0;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+// dòng 158
+#BtnRight1 {
+    right: 0;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+//dòng 250
+#Product_tech {
+
+    #Item {
+        width: 25%;
+    }
+
+    >div {
+        >div:nth-child(2) {
+            flex: 1;
+        }
+    }
+}
+
+#FlashSale {
+    background-image: url("https://bizweb.dktcdn.net/100/507/051/themes/936909/assets/bg-sale.jpg?1708054180263");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 35px 12px 80px 12px;
+
+    >div:nth-child(3) {
+        right: 0;
+        left: 0;
+        bottom: 24px;
+    }
+}
+
+#Product_common {
+    #Item {
+        width: 16.6667%;
+    }
+
+    >div:nth-child(1) {
+        >ul {
+            >li {
+                background-color: #eb3e32;
+                margin-left: 12px;
+                color: #fff;
+                padding: 5px 12px;
+            }
+        }
+    }
+
+    >div:nth-child(3) {
+        >button {
+            border: 1px #ebebeb solid;
+        }
+    }
+}
+
+#Accessory {
+    // #Item {
+    //     width: 16.6667%;
+    // }
+
+    >div:nth-child(1) {
+        >ul {
+            >li {
+                background-color: #eb3e32;
+                margin-left: 12px;
+                color: #fff;
+                padding: 5px 12px;
+            }
+        }
+
+        >span:nth-child(2) {
+            cursor: pointer;
+
+            &:hover {
+                color: #eb3e32;
+            }
+        }
+    }
+}
+
+#Suggest {
+    #Item {
+        width: 16.6667%;
+    }
+
+    >h2 {
+        border-bottom: 2px #eb3e32 solid;
+        padding: 12px 0;
+    }
+
+    >div:nth-child(3) {
+        >button {
+            border: 1px #ebebeb solid;
+        }
+    }
+}

@@ -1,0 +1,109 @@
+#grid {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 22px;
+
+    >h1 {
+        margin-top: 20px;
+    }
+
+    >p:nth-child(1) {
+        margin-top: 16px;
+
+        >span:nth-child(3) {
+            color: #ffb416;
+        }
+    }
+
+    >div:nth-child(4) {
+        margin-top: 8px;
+        box-shadow: 0 0 0 #ccc;
+        padding: 12px;
+        box-shadow: 0px 3px 10px 0px rgb(31 38 67 / 10%);
+        font-weight: 600;
+        font-size: 1.6rem;
+        cursor: pointer;
+
+        &:hover {
+            color: #ffb416;
+        }
+    }
+
+    >div:nth-child(6) {
+        margin-top: 8px;
+        box-shadow: 0 0 0 #ccc;
+        padding: 12px;
+        box-shadow: 0px 3px 10px 0px rgb(31 38 67 / 10%);
+        font-weight: 600;
+        font-size: 1.6rem;
+        cursor: pointer;
+
+        &:hover {
+            color: #ffb416;
+        }
+    }
+
+    >div:nth-child(8) {
+        margin-top: 8px;
+        box-shadow: 0 0 0 #ccc;
+        padding: 12px;
+        box-shadow: 0px 3px 10px 0px rgb(31 38 67 / 10%);
+        font-weight: 600;
+        font-size: 1.6rem;
+        cursor: pointer;
+
+        &:hover {
+            color: #ffb416;
+        }
+    }
+
+    >div:nth-child(10) {
+        margin-top: 8px;
+        box-shadow: 0 0 0 #ccc;
+        padding: 12px;
+        box-shadow: 0px 3px 10px 0px rgb(31 38 67 / 10%);
+        font-weight: 600;
+        font-size: 1.6rem;
+        cursor: pointer;
+
+        &:hover {
+            color: #ffb416;
+        }
+    }
+
+    >div:nth-child(12) {
+        margin-top: 8px;
+        padding: 12px;
+        box-shadow: 0px 0px 5px #ccc;
+        font-weight: 600;
+        font-size: 1.6rem;
+        cursor: pointer;
+
+        &:hover {
+            color: #ffb416;
+        }
+    }
+
+
+
+}
+
+.answer {
+    padding: 6px 12px;
+    margin-top: 6px;
+    box-shadow: 0px 0px 5px #ccc;
+    line-height: 2.2rem;
+}
+
+.question {
+    margin-top: 8px;
+    padding: 12px;
+    box-shadow: 0px 0px 5px #ccc;
+    font-weight: 600;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+#questionCommon {
+    padding: 0px 0px 80px 0px;
+}

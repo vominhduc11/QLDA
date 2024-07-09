@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    text-rendering: optimizeSpeed;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+#App {
+    background-color: #f5f5f5;
+}
+
+.no-outline {
+    outline: none;
+}
+
+.carousel .thumbs-wrapper {
+    background-color: #f5f5f5;
+    /* Màu nền của khung thumb */
+    padding: 10px;
+}
+
+.carousel .thumb {
+    border: 2px solid #ccc;
+    /* Đường viền của mỗi thumb */
+    margin: 5px;
+}
+
+.carousel .thumb.selected,
+.carousel .thumb:hover {
+    border-color: #000;
+    /* Đường viền khi thumb được chọn hoặc hover */
+}
+
+.carousel .thumb img {
+    border-radius: 5px;
+    /* Bo tròn góc của ảnh thumb */
+}
+
+/* thêm dấu 3 chấm nếu quá 2 dòng */
+.morethan2lines {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.active {
+    border: 1px #f72c0f solid !important;
+}
+
+.ReactCollapse--collapse {
+    height: 500px !important;
+}
