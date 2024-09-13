@@ -1,8 +1,25 @@
+import axios from "axios";
+import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaChevronRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Order() {
+    // đăng xuất
+    function HandleOut() {
+        sessionStorage.removeItem("User");
+        window.location.href = "/Login"
+    }
+    // Tự động chuyển về trang login nếu như chưa đăng nhập
+    if (!sessionStorage.getItem("User")) {
+        window.location.href = "/Login";
+    }
+    useEffect(() => {
+        axios.post("http://localhost:8080/api/Order", { Id: JSON.parse(sessionStorage.getItem("User")).Id })
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err));
+    }, [])
     return (
         <div>
             <div className="bg-white py-3">
@@ -18,13 +35,13 @@ export default function Order() {
                         <Col md={3}>
                             <div className="bg-white p-3">
                                 <h3>TRANG TÀI KHOẢN</h3>
-                                <p><span className="fw-semibold">Xin chào</span>,<span className="fw-semibold text-danger">Võ Minh Đức !</span></p>
+                                <p><span className="fw-semibold">Xin chào</span>,<span className="fw-semibold text-danger">{ } !</span></p>
                                 <ul className="list-unstyled mt-5">
-                                    <li className="text-danger mt-4">Thông tin tài khoản</li>
-                                    <li className="mt-4">Đơn hàng của bạn</li>
-                                    <li className="mt-4">Đổi mật khẩu</li>
-                                    <li className="mt-4">Sổ địa chỉ (2)</li>
-                                    <li className="mt-4">Đăng xuất</li>
+                                    <Link to="/Account" className="mt-4 d-block" style={{ cursor: 'pointer' }}>Thông tin tài khoản</Link>
+                                    <Link to="/Account/Order" className="text-danger mt-4 d-block" style={{ cursor: 'pointer' }}>Đơn hàng của bạn</Link>
+                                    <Link to="/Account/ChangePassWord" className="mt-4 d-block" style={{ cursor: 'pointer' }}>Đổi mật khẩu</Link>
+                                    <li className="mt-4" style={{ cursor: 'pointer' }}>Sổ địa chỉ (2)</li>
+                                    <li onClick={() => HandleOut()} className="mt-4" style={{ cursor: 'pointer' }}>Đăng xuất</li>
                                 </ul>
                             </div>
                         </Col>

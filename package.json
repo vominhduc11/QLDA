@@ -14,9 +14,13 @@
     "numeral": "^2.0.6",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.2",
+    "react-countdown": "^2.3.5",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
+    "react-jsx-parser": "^1.29.0",
+    "react-modal": "^3.16.1",
     "react-multi-carousel": "^2.8.5",
+    "react-number-format": "^5.3.4",
     "react-paginate": "^8.2.0",
     "react-progress-bar": "^0.1.0",
     "react-rating-stars-component": "^2.2.0",
@@ -52,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
   }
 }

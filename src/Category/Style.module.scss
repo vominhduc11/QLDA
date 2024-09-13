@@ -1,0 +1,102 @@
+#Item {
+    width: 25%;
+
+    >div {
+        &:hover {
+            >span:nth-child(4) {
+                transform: scale(100%);
+            }
+
+            >span:nth-child(5) {
+                transform: scale(100%);
+            }
+        }
+
+        cursor: pointer;
+
+        >span:nth-child(3) {
+            color: #F32A2A;
+            font-size: 12px;
+            border-radius: 0 20px 20px 0;
+            position: absolute;
+            font-family: var(--font-title);
+            line-height: 24px;
+            width: auto;
+            height: 22px;
+            top: 5px;
+            left: 0px;
+            text-align: center;
+            z-index: 99;
+            background: #FEE71A;
+            padding: 0 5px;
+            font-weight: bold;
+        }
+
+        >span:nth-child(4) {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 6px;
+            font-size: 2rem;
+            background-color: #fff;
+            display: flex;
+            color: #a3a2a2;
+            border-radius: 4px;
+            transform: scale(0%);
+            transition: all 0.15s linear;
+
+            &:hover {
+                color: #eb3e32;
+            }
+        }
+
+        >span:nth-child(5) {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            padding: 6px;
+            font-size: 2rem;
+            display: flex;
+            color: #a3a2a2;
+            border-radius: 4px;
+            transition: all 0.15s linear;
+
+
+            &:hover {
+                color: #eb3e32;
+            }
+        }
+    }
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Style cho track của thanh cuộn */
+.scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Màu nền của track */
+    border-radius: 10px;
+    /* Bo tròn các góc */
+}
+
+/* Style cho thumb của thanh cuộn */
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Màu của thumb */
+    border-radius: 10px;
+    /* Bo tròn các góc */
+}
+
+/* Style cho thumb khi hover */
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Màu của thumb khi hover */
+}
+
+/* Style cho corner của thanh cuộn */
+.scrollbar::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+    /* Màu của góc giữa thanh cuộn ngang và dọc */
+}

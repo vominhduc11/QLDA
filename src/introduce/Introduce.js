@@ -1,5 +1,9 @@
 import { useEffect } from "react";
 import styles from "./style.module.scss"
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { FaChevronRight } from "react-icons/fa";
+import { AiOutlineHome } from "react-icons/ai";
 
 function Introduce() {
 
@@ -8,12 +12,14 @@ function Introduce() {
     });
     return (
         <div id={styles.introduce}>
+            <div className="bg-white py-3">
+                <Container style={{ width: 1200 }} className="d-flex align-items-center">
+                    <Link to="/"><AiOutlineHome size={22} color="#f72c0f" /></Link>
+                    <span className="mx-3"><FaChevronRight color="#f72c0f" /></span>
+                    <span className="mt-1" style={{ color: '#f72c0f' }}>Giới thiệu</span>
+                </Container>
+            </div>
             <div id={styles.grid}>
-                <p>
-                    <span>Trang chủ</span>
-                    <span style={{ margin: "0 12px" }}>/</span>
-                    <span>Giới thiệu</span>
-                </p>
                 <h1>GIỚI THIỆU</h1>
                 <div style={{ border: '2px red solid', borderBottom: 'none', margin: '16px 0px' }}></div>
                 <div>

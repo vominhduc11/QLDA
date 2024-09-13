@@ -9,8 +9,20 @@ import { FaRandom } from "react-icons/fa"
 import { Container } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom"
+import { useContext, useEffect, useState } from "react"
+import { ThemeContext } from "../../App"
+import Tippy from "@tippyjs/react/headless"
+import axios from "axios"
 
 export default function Header() {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        if (sessionStorage.getItem("User"))
+            axios.post("http://localhost:8080/api/FindUser", { Id: JSON.parse(sessionStorage.getItem("User")).Id })
+                .then(res => setUser(res.data))
+                .catch(err => console.log(err));
+    }, [])
     return (
         // Grid outside
         <div className="bg-white">
@@ -34,10 +46,11 @@ export default function Header() {
                     </div>
                     {/* hotline */}
                     <div className="d-flex align-items-center">
-                        <span style={{ padding: "0 8px" }}><HiOutlineUserCircle color="#eb3e32" size="32" /></span>
+                        <Link to="/Account" style={{ padding: "0 8px" }}><HiOutlineUserCircle color="#eb3e32" size="32" /></Link>
                         <div>
                             <div>Xin chào!</div>
-                            <Link to="/Login" style={{ color: "#eb3e32", fontSize: 15, fontWeight: 500, cursor: 'pointer' }}>Đăng nhập</Link>
+                            {sessionStorage.getItem("User") !== null || <Link to="/Login" style={{ color: "#eb3e32", fontSize: 15, fontWeight: 500, cursor: 'pointer' }}>Đăng nhập</Link>}
+                            {sessionStorage.getItem("User") && <span style={{ color: "#eb3e32", fontSize: 15, fontWeight: 500, cursor: 'pointer' }}>{user.Name}</span>}
                         </div>
                     </div>
                 </div>
@@ -45,15 +58,9 @@ export default function Header() {
                 <div>
                     <Link to="/Favorite">
                         <AiOutlineHeart size={20} />
-                        <span>0</span>
                     </Link>
                     <Link to="/Cart" className="mx-3">
                         <BsBag size={20} />
-                        <span>0</span>
-                    </Link>
-                    <Link to="/Compare">
-                        <FaRandom size={20} />
-                        <span>2</span>
                     </Link>
                 </div>
             </Container>

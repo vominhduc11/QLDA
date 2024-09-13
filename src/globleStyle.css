@@ -65,3 +65,96 @@ a {
 .ReactCollapse--collapse {
     height: 500px !important;
 }
+
+/* css cho phân trang */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin-right: 5px;
+}
+
+.pagination li a {
+    display: inline-block;
+    color: #6c757d !important;
+    text-decoration: none;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination li a:hover {
+    color: #ee4d2d !important;
+}
+
+.pagination .active {
+    border: none !important;
+}
+
+.pagination .active a {
+    border-radius: 3px;
+    background-color: #ee4d2d;
+    color: #fff !important;
+}
+
+.pagination .active a:hover {
+    color: #fff !important;
+}
+
+.pagination .disabled a {
+    pointer-events: none;
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+/* css cho mo ta san pham */
+.e8lZp3 {
+    color: rgba(0, 0, 0, .8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.QN2lPu {
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* css cho thanh cuộn */
+.scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Style cho track của thanh cuộn */
+.scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Màu nền của track */
+    border-radius: 10px;
+    /* Bo tròn các góc */
+}
+
+/* Style cho thumb của thanh cuộn */
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #c2c1c1;
+    /* Màu của thumb */
+    border-radius: 10px;
+    /* Bo tròn các góc */
+}
+
+/* Style cho thumb khi hover */
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #8a8a8a;
+    /* Màu của thumb khi hover */
+}
+
+/* Style cho corner của thanh cuộn */
+.scrollbar::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+    /* Màu của góc giữa thanh cuộn ngang và dọc */
+}

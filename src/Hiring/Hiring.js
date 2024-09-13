@@ -1,5 +1,9 @@
 import { useEffect } from "react";
 import styles from "./style.module.scss"
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { AiOutlineHome } from "react-icons/ai";
+import { FaChevronRight } from "react-icons/fa";
 
 function Hiring() {
 
@@ -8,12 +12,14 @@ function Hiring() {
     });
     return (
         <div id={styles.new}>
+            <div className="bg-white py-3">
+                <Container style={{ width: 1200 }} className="d-flex align-items-center">
+                    <Link to="/"><AiOutlineHome size={22} color="#f72c0f" /></Link>
+                    <span className="mx-3"><FaChevronRight color="#f72c0f" /></span>
+                    <span className="mt-1" style={{ color: '#f72c0f' }}>Tuyển dụng</span>
+                </Container>
+            </div>
             <div id={styles.grid}>
-                <p>
-                    <span>Trang chủ</span>
-                    <span style={{ margin: "0 12px" }}>/</span>
-                    <span>Tuyển dụng</span>
-                </p>
                 <h1>Tuyển dụng</h1>
                 <div style={{ border: '2px red solid', borderBottom: 'none' }}></div>
                 <div>

@@ -1,45 +1,85 @@
+import axios from "axios";
+import { useRef } from "react";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Register() {
+    // các thẻ ref trong form đăng nhập
+    const warningTag = useRef();
+    const inputSurnameTag = useRef();
+    const inputNameTag = useRef();
+    const inputPhoneTag = useRef();
+    const inputEmailTag = useRef();
+    const inputPassWordTag = useRef();
+    // Thực hiện sự kiện khi bấm đăng kí
+    function handleRegister(e) {
+        e.preventDefault();
+        if (inputEmailTag.current.value === '' || inputPassWordTag.current.value === '' || inputPhoneTag.current.value === '' || inputNameTag.current.value === '' || inputSurnameTag.current.value === '') {
+            warningTag.current.innerText = "Vui lòng điền đầy đủ thông tin";
+        } else {
+            if (!(/^(0|\+84)(3[2-9]|5[6|8|9]|7[0|6-9]|8[1-9]|9[0-9])[0-9]{7}$/).test(inputPhoneTag.current.value)) {
+                warningTag.current.innerText = "Số điện thoại không hợp lệ";
+                return;
+            } else {
+                warningTag.current.innerText = "";
+            }
+            if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(inputEmailTag.current.value)) {
+                warningTag.current.innerText = "Email không hợp lệ";
+                return;
+            } else {
+                warningTag.current.innerText = "";
+            }
+            if (inputPassWordTag.current.value.length < 6) {
+                warningTag.current.innerText = "Mật không tối thiểu 6 kí tự";
+                return;
+            } else {
+                warningTag.current.innerText = "";
+
+                // Thực thi khi tất cả thông tin hợp lí
+                axios.post("http://localhost:8080/api/ResgisterUser", { Name: inputSurnameTag.current.value + " " + inputNameTag.current.value, Phone: inputPhoneTag.current.value, Email: inputEmailTag.current.value, Password: inputPassWordTag.current.value })
+                    .then(res => {
+                        if (res.data === "Success") {
+                            alert("Đăng kí tài khoản thành công")
+                        } else {
+                            warningTag.current.innerText = res.data;
+                        }
+                    })
+                    .catch(err => console.log(err));
+            }
+        }
+    };
     return (
         <div>
-            <div className="bg-white py-3">
-                <Container style={{ width: 1200 }} className="d-flex align-items-center">
-                    <span><AiOutlineHome size={22} color="#f72c0f" /></span>
-                    <span className="mx-3"><FaChevronRight color="#f72c0f" /></span>
-                    <span style={{ color: '#f72c0f' }}>Đăng ký tài khoản</span>
-                </Container>
-            </div>
             <div>
-                <Container style={{ width: 700 }} className="pt-4">
+                <Container style={{ width: 700, height: "100vh" }} className="pt-4">
                     <Row>
                         <Col md={8} className="p-5 bg-white border border-danger">
-                            <h3 className="fw-semibold mb-4">Đăng ký tài khoản</h3>
+                            <h3 className="fw-semibold mb-2">Đăng ký tài khoản</h3>
+                            <span ref={warningTag} className="text-danger d-inline-block fs-5 mb-3"></span>
                             <form>
                                 <div className="mb-3">
                                     <label className="fw-semibold d-block mb-2" htmlFor="formBasicEmail">Họ<span className="text-danger mx-2">*</span></label>
-                                    <input className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="text" id="formBasicEmail" placeholder="Họ" />
+                                    <input ref={inputSurnameTag} className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="text" id="formBasicEmail" placeholder="Họ" />
                                 </div>
                                 <div className="mb-3">
                                     <label className="fw-semibold d-block mb-2" htmlFor="formBasicEmail">Tên<span className="text-danger mx-2">*</span></label>
-                                    <input className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="text" id="formBasicEmail" placeholder="Tên" />
+                                    <input ref={inputNameTag} className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="text" id="formBasicEmail" placeholder="Tên" />
                                 </div>
                                 <div className="mb-3">
                                     <label className="fw-semibold d-block mb-2" htmlFor="formBasicPassword">Số điện thoại<span className="text-danger mx-2">*</span></label>
-                                    <input className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="text" id="formBasicPassword" placeholder="Số điện thoại" />
+                                    <input ref={inputPhoneTag} className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="text" id="formBasicPassword" placeholder="Số điện thoại" />
                                 </div>
                                 <div className="mb-3">
                                     <label className="fw-semibold d-block mb-2" htmlFor="formBasicEmail">Email<span className="text-danger mx-2">*</span></label>
-                                    <input className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="email" id="formBasicEmail" placeholder="Email" />
+                                    <input ref={inputEmailTag} className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="email" id="formBasicEmail" placeholder="Email" />
                                 </div>
                                 <div className="mb-3">
                                     <label className="fw-semibold d-block mb-2" htmlFor="formBasicPassword">Mật khẩu<span className="text-danger mx-2">*</span></label>
-                                    <input className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="password" id="formBasicPassword" placeholder="Mật khẩu" />
+                                    <input ref={inputPassWordTag} className="fs-5 px-3 py-2 w-100" style={{ border: '1px solid #eaebf3', outline: 'none' }} type="password" id="formBasicPassword" placeholder="Mật khẩu" />
                                 </div>
-                                <button className="w-100 bg-danger border-0 text-white rounded-1 fw-semibold py-2 mt-2" type="submit">
+                                <button onClick={(e) => handleRegister(e)} className="w-100 bg-danger border-0 text-white rounded-1 fw-semibold py-2 mt-2" type="submit">
                                     Đăng ký
                                 </button>
                             </form>
